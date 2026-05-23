@@ -133,7 +133,7 @@ p { color: var(--gray-light); line-height: 1.75; }
 }
 
 .nav-logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
-.nav-logo-img { height: 44px; width: 44px; object-fit: contain; border-radius: 50%; }
+.nav-logo-img { height: 44px; width: 44px; object-fit: cover; border-radius: 50%; }
 .nav-wordmark {
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -665,20 +665,18 @@ p { color: var(--gray-light); line-height: 1.75; }
 @media (max-width: 768px) {
   .nav-links, .nav-cta, .lang-toggle:not(.drawer-lang) { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-wordmark { display: none; }
 
   .section-wrap { padding: 3.5rem 1.25rem; }
+  .subpage-hero { padding: calc(var(--nav-h) + 2.5rem) 1.25rem 2rem; }
 
   .hero-inner { padding: calc(var(--nav-h) + 3rem) 1.25rem 3rem; }
   .hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
   .hero-ctas { flex-direction: column; }
   .hero-ctas a { width: 100%; }
 
-  .stats-strip { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; }
-  .stat { padding: 1rem 1.4rem; }
-
   .svc-teaser-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .services-list { grid-template-columns: 1fr; }
-  .services-list li:nth-child(odd) { border-right: none; }
 
   .statement-wrap { flex-direction: row; gap: 1.5rem; }
   .statement-quote { font-size: clamp(1.3rem, 5vw, 1.8rem); }
@@ -697,9 +695,19 @@ p { color: var(--gray-light); line-height: 1.75; }
   .footer-links { gap: 2.5rem; }
 }
 
+@media (max-width: 640px) {
+  .stats-strip { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat { padding: 1rem 1.25rem; }
+  .stat + .stat::before { display: none; }
+  .stat:nth-child(1),
+  .stat:nth-child(2) { border-bottom: 1px solid var(--dark-border); }
+  .stat:nth-child(1),
+  .stat:nth-child(3) { border-right: 1px solid var(--dark-border); }
+}
+
 @media (max-width: 480px) {
   :root { --nav-h: 60px; }
-  .nav-wordmark { display: none; }
+  .section-wrap { padding: 2.75rem 1.25rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .page-cta-btns { flex-direction: column; }
   .hero h1 { font-size: clamp(2.5rem, 13vw, 3.2rem); }
