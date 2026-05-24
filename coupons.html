@@ -22,7 +22,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" /></noscript>
 
+  <link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high" type="image/webp" />
   <link rel="stylesheet" href="css/style.css" />
+  <meta name="geo.region" content="MX-SON" />
+  <meta name="geo.placename" content="Puerto Penasco, Sonora, Mexico" />
+  <meta name="geo.position" content="31.3177;-113.5367" />
+  <meta name="ICBM" content="31.3177, -113.5367" />
 </head>
 <body>
 
@@ -281,6 +286,7 @@
         <ul role="list">
           <li><a href="tel:+16023120400">(602) 312-0400</a></li>
           <li><a href="mailto:rockypointremodeling1@gmail.com">rockypointremodeling1@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61572232620299" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
       </div>
     </div>
@@ -296,10 +302,17 @@
 
   <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     document.querySelectorAll('.coupon-save-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
+        if (!window.html2canvas) {
+          await new Promise((res, rej) => {
+            const s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+            s.onload = res; s.onerror = rej;
+            document.head.appendChild(s);
+          });
+        }
         const card = btn.closest('.coupon-card');
         const headline = card.querySelector('.coupon-headline')?.textContent.trim() || 'coupon';
         const filename = 'rpr-' + headline.toLowerCase().replace(/[\s/]+/g, '-').replace(/[^a-z0-9-]/g, '') + '.png';
