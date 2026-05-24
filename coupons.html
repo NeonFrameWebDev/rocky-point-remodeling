@@ -302,36 +302,6 @@
 
   <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script>
-    document.querySelectorAll('.coupon-save-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        if (!window.html2canvas) {
-          await new Promise((res, rej) => {
-            const s = document.createElement('script');
-            s.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
-            s.onload = res; s.onerror = rej;
-            document.head.appendChild(s);
-          });
-        }
-        const card = btn.closest('.coupon-card');
-        const headline = card.querySelector('.coupon-headline')?.textContent.trim() || 'coupon';
-        const filename = 'rpr-' + headline.toLowerCase().replace(/[\s/]+/g, '-').replace(/[^a-z0-9-]/g, '') + '.png';
-        const original = btn.innerHTML;
-        btn.textContent = 'Saving...';
-        btn.disabled = true;
-        try {
-          const canvas = await html2canvas(card, { backgroundColor: '#1c1c1c', scale: 2, useCORS: true, logging: false });
-          const link = document.createElement('a');
-          link.download = filename;
-          link.href = canvas.toDataURL('image/png');
-          link.click();
-        } catch (e) {
-          console.error('Coupon save failed:', e);
-        }
-        btn.innerHTML = original;
-        btn.disabled = false;
-      });
-    });
-  </script>
+  <script src="js/coupon-export.js" defer></script>
 </body>
 </html>
