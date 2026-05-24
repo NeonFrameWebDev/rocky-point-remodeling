@@ -181,12 +181,15 @@ p { color: var(--gray-light); line-height: 1.75; }
   background: var(--orange);
   color: var(--white);
   border-radius: 4px;
-  font-family: var(--font-display);
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
   transition: background var(--t), box-shadow var(--t);
   white-space: nowrap;
 }
+.nav-cta::after { content: none; }
 .nav-cta:hover {
   background: var(--orange-hover);
   box-shadow: 0 4px 16px rgba(212,117,42,0.4);
@@ -196,21 +199,20 @@ p { color: var(--gray-light); line-height: 1.75; }
 .lang-toggle {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 4px;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+  background: none;
+  border: none;
   color: var(--gray);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: border-color var(--t), color var(--t);
+  letter-spacing: 0.04em;
+  transition: color var(--t);
   white-space: nowrap;
 }
-.lang-toggle:hover { border-color: var(--orange); color: var(--white); }
-.lt-flag { font-size: 0.9rem; line-height: 1; }
-.lt-label { letter-spacing: 0.06em; }
+.lang-toggle:hover { color: var(--white); }
+.lt-flag { font-size: 1rem; line-height: 1; }
+.lt-label { letter-spacing: 0.02em; }
 
 /* ===== HAMBURGER ===== */
 .nav-hamburger {
