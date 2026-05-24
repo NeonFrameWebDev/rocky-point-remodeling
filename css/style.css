@@ -825,6 +825,15 @@ p { color: var(--gray-light); line-height: 1.75; }
   padding-top: 0.85rem;
   border-top: 1px solid var(--dark-border);
 }
+.coupon-notice {
+  font-size: 0.8rem;
+  color: var(--gray);
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+}
+
 .coupon-redeem {
   display: inline-block;
   margin-top: 0.9rem;
@@ -836,6 +845,30 @@ p { color: var(--gray-light); line-height: 1.75; }
   transition: color var(--t);
 }
 .coupon-redeem:hover { color: var(--orange-hover); }
+
+.coupon-save-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1px solid var(--dark-border);
+  color: var(--gray);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color var(--t), border-color var(--t);
+  margin-top: 0.6rem;
+}
+.coupon-save-btn:hover {
+  color: var(--white);
+  border-color: var(--gray);
+}
+.coupon-save-btn:disabled { opacity: 0.5; cursor: default; }
+.coupon-save-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
 
 @media (max-width: 768px) {
   .coupons-grid { grid-template-columns: 1fr; }
