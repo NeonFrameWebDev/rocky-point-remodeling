@@ -1,0 +1,36 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="200" fill="#191919"/>
+  <!-- House icon: roof outline + rafter lines + body -->
+  <!-- Roof triangle outline -->
+  <polyline points="118,126 200,54 282,126"
+    fill="none" stroke="#D4752A" stroke-width="6"
+    stroke-linejoin="miter" stroke-linecap="round"/>
+  <!-- Rafter lines from peak -->
+  <line x1="200" y1="54" x2="200" y2="126" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="54" x2="159" y2="126" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="54" x2="241" y2="126" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
+  <!-- House body -->
+  <rect x="128" y="125" width="144" height="64" fill="#D4752A"/>
+  <!-- Door cutout -->
+  <rect x="180" y="150" width="40" height="39" fill="#191919" rx="1"/>
+
+  <!-- RPR -->
+  <text x="200" y="232"
+    font-family="'Arial Black', Arial, sans-serif"
+    font-size="98"
+    font-weight="900"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    dominant-baseline="middle">RPR</text>
+
+  <!-- REMODELING -->
+  <text x="200" y="314"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="21"
+    font-weight="700"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    letter-spacing="5.5">REMODELING</text>
+</svg>
