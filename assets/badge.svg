@@ -1,13 +1,15 @@
 <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
 
   <!-- Background -->
-  <circle cx="200" cy="200" r="200" fill="#1A1A1A"/>
+  <circle cx="200" cy="200" r="200" fill="#1C1C1C"/>
 
-  <!-- ── House / construction icon (orange) ─────────────────────── -->
+  <!-- ── House / construction icon ────────────────────────────── -->
 
-  <!-- Extended structural members / exposed rafters at upper-right -->
-  <line x1="256" y1="50" x2="252" y2="90" stroke="#D4752A" stroke-width="5"  stroke-linecap="round"/>
-  <line x1="270" y1="56" x2="264" y2="98" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
+  <!-- Stacked horizontal boards at right gable end -->
+  <rect x="258" y="68"  width="28" height="7" fill="#D4752A" rx="1"/>
+  <rect x="258" y="80"  width="28" height="7" fill="#D4752A" rx="1"/>
+  <rect x="258" y="92"  width="28" height="7" fill="#D4752A" rx="1"/>
+  <rect x="258" y="104" width="28" height="7" fill="#D4752A" rx="1"/>
 
   <!-- Roof outline (unfilled triangle) -->
   <polygon points="200,62 280,124 120,124"
@@ -15,18 +17,18 @@
     stroke-linejoin="miter" stroke-linecap="round"/>
 
   <!-- Rafter lines from peak to eave -->
-  <line x1="200" y1="62" x2="200" y2="124" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
-  <line x1="200" y1="62" x2="160" y2="124" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
-  <line x1="200" y1="62" x2="240" y2="124" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
+  <line x1="200" y1="62"  x2="200" y2="124" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="62"  x2="160" y2="124" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="62"  x2="240" y2="124" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
 
-  <!-- House body solid fill -->
+  <!-- House body -->
   <rect x="128" y="123" width="144" height="62" fill="#D4752A"/>
 
   <!-- Door cutout -->
-  <rect x="182" y="150" width="36" height="35" fill="#1A1A1A"/>
+  <rect x="182" y="150" width="36" height="35" fill="#1C1C1C"/>
 
-  <!-- ── RPR — orange drop-shadow layer, then white on top ───────── -->
-  <text x="203" y="240"
+  <!-- ── RPR — orange layer then white on top ──────────────────── -->
+  <text x="204" y="241"
     font-family="'Arial Black', Arial, sans-serif"
     font-size="102" font-weight="900"
     fill="#D4752A"
