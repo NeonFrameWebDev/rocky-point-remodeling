@@ -132,7 +132,10 @@
 
   <!-- HERO -->
   <section class="hero" id="hero" aria-label="RPR Remodeling hero">
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-bg" aria-hidden="true">
+      <img src="assets/after.webp" alt="" class="hero-bg-img" fetchpriority="high" />
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-content">
         <span class="eyebrow"
@@ -155,14 +158,16 @@
              data-en="Call (602) 312-0400" data-es="Llamar al (602) 312-0400">Call (602) 312-0400</a>
         </div>
       </div>
-      <div class="hero-badge-wrap" aria-hidden="true">
-        <div class="hero-badge">
-          <picture>
-            <source type="image/webp" srcset="assets/logo.webp" />
-            <img src="assets/logo.png" alt="" class="hero-badge-img" width="220" height="220" />
-          </picture>
-        </div>
-      </div>
+      <a href="contact.html" class="need-help-badge" aria-label="Need help? Get a free estimate">
+        <span class="nhb-ring" aria-hidden="true"></span>
+        <span class="nhb-ring nhb-ring-2" aria-hidden="true"></span>
+        <span class="nhb-inner">
+          <span class="nhb-big" data-en="Need&nbsp;Help?" data-es="&iquest;Ayuda?">Need&nbsp;Help?</span>
+          <span class="nhb-rule" aria-hidden="true"></span>
+          <span class="nhb-small" data-en="Free Estimate" data-es="Cotizaci&oacute;n Gratis">Free Estimate</span>
+          <span class="nhb-arrow" aria-hidden="true">&rarr;</span>
+        </span>
+      </a>
     </div>
   </section>
 
@@ -186,8 +191,35 @@
     </div>
   </div>
 
+  <!-- BEFORE / AFTER SLIDER -->
+  <section class="section-wrap section-dark ba-section" aria-label="Before and after transformation">
+    <div class="section-inner">
+      <div class="ba-header">
+        <span class="eyebrow reveal" data-en="THE TRANSFORMATION" data-es="LA TRANSFORMACI&Oacute;N">THE TRANSFORMATION</span>
+        <h2 class="reveal" data-en="Drag to see the difference." data-es="Desliza para ver la diferencia.">Drag to see the difference.</h2>
+        <p class="ba-sub reveal" data-en="A real beachfront home in Rocky Point. Sun-faded and weathered, brought back to better than new." data-es="Una casa real frente al mar en Rocky Point. Desgastada por el sol, restaurada a mejor que nueva.">A real beachfront home in Rocky Point. Sun-faded and weathered, brought back to better than new.</p>
+      </div>
+
+      <div class="ba-slider reveal" id="baSlider" aria-label="Before and after slider. Use the slider or arrow keys to compare.">
+        <img class="ba-img ba-img-after" src="assets/after.webp" alt="Rocky Point beachfront home after RPR remodel: fresh stucco, finished balustrades, restored columns" draggable="false" />
+        <div class="ba-before-pane" id="baBeforePane">
+          <img class="ba-img ba-img-before" src="assets/before.webp" alt="Same Rocky Point home before remodel: faded, water-stained stucco and unfinished walls" draggable="false" />
+        </div>
+        <span class="ba-tag ba-tag-before" aria-hidden="true" data-en="Before" data-es="Antes">Before</span>
+        <span class="ba-tag ba-tag-after" aria-hidden="true" data-en="After" data-es="Despu&eacute;s">After</span>
+        <div class="ba-handle" id="baHandle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Reveal before or after photo">
+          <span class="ba-line" aria-hidden="true"></span>
+          <span class="ba-grip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES TEASER -->
-  <section class="section-wrap section-dark" aria-label="Services overview">
+  <section class="section-wrap section-alt" aria-label="Services overview">
     <div class="section-inner">
       <div class="svc-teaser-header">
         <div>
@@ -246,10 +278,10 @@
     <div class="section-inner">
       <div class="hcs-inner reveal">
         <div class="hcs-text">
-          <h2 data-en="Ready to start?" data-es="&iquest;Listo para empezar?">Ready to start?</h2>
-          <p data-en="Tell us about your project and we'll put together a free written estimate."
-             data-es="Cu&eacute;ntanos sobre tu proyecto y te preparamos una cotizaci&oacute;n escrita gratis.">
-            Tell us about your project and we'll put together a free written estimate.
+          <h2 data-en="Need Help?" data-es="&iquest;Necesitas Ayuda?">Need Help?</h2>
+          <p data-en="Tell us about your project and we'll put together a free written estimate. No language barrier, no runaround."
+             data-es="Cu&eacute;ntanos sobre tu proyecto y te preparamos una cotizaci&oacute;n escrita gratis. Sin barrera de idioma, sin rodeos.">
+            Tell us about your project and we'll put together a free written estimate. No language barrier, no runaround.
           </p>
         </div>
         <div class="hcs-actions">

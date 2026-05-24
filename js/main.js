@@ -108,3 +108,52 @@ if (form && success) {
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 }
+
+// Before / After slider
+const baSlider = document.getElementById('baSlider');
+if (baSlider) {
+  const pane   = document.getElementById('baBeforePane');
+  const handle = document.getElementById('baHandle');
+  let dragging = false;
+
+  const setPos = pct => {
+    const v = Math.max(0, Math.min(100, pct));
+    pane.style.width = v + '%';
+    handle.style.left = v + '%';
+    handle.setAttribute('aria-valuenow', String(Math.round(v)));
+  };
+
+  const posFromEvent = clientX => {
+    const rect = baSlider.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  };
+
+  const startDrag = e => {
+    dragging = true;
+    baSlider.classList.add('dragging');
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setPos(posFromEvent(x));
+  };
+  const moveDrag = e => {
+    if (!dragging) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setPos(posFromEvent(x));
+  };
+  const endDrag = () => { dragging = false; baSlider.classList.remove('dragging'); };
+
+  baSlider.addEventListener('mousedown', startDrag);
+  window.addEventListener('mousemove', moveDrag);
+  window.addEventListener('mouseup', endDrag);
+
+  baSlider.addEventListener('touchstart', startDrag, { passive: true });
+  window.addEventListener('touchmove', moveDrag, { passive: true });
+  window.addEventListener('touchend', endDrag);
+
+  handle.addEventListener('keydown', e => {
+    const now = parseInt(handle.getAttribute('aria-valuenow'), 10) || 50;
+    if (e.key === 'ArrowLeft')  { setPos(now - 5); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { setPos(now + 5); e.preventDefault(); }
+    if (e.key === 'Home')       { setPos(0);  e.preventDefault(); }
+    if (e.key === 'End')        { setPos(100); e.preventDefault(); }
+  });
+}
