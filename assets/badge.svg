@@ -1,36 +1,49 @@
 <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle -->
-  <circle cx="200" cy="200" r="200" fill="#191919"/>
-  <!-- House icon: roof outline + rafter lines + body -->
-  <!-- Roof triangle outline -->
-  <polyline points="118,126 200,54 282,126"
+
+  <!-- Background -->
+  <circle cx="200" cy="200" r="200" fill="#1A1A1A"/>
+
+  <!-- ── House / construction icon (orange) ─────────────────────── -->
+
+  <!-- Extended structural members / exposed rafters at upper-right -->
+  <line x1="256" y1="50" x2="252" y2="90" stroke="#D4752A" stroke-width="5"  stroke-linecap="round"/>
+  <line x1="270" y1="56" x2="264" y2="98" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
+
+  <!-- Roof outline (unfilled triangle) -->
+  <polygon points="200,62 280,124 120,124"
     fill="none" stroke="#D4752A" stroke-width="6"
     stroke-linejoin="miter" stroke-linecap="round"/>
-  <!-- Rafter lines from peak -->
-  <line x1="200" y1="54" x2="200" y2="126" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
-  <line x1="200" y1="54" x2="159" y2="126" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
-  <line x1="200" y1="54" x2="241" y2="126" stroke="#D4752A" stroke-width="4" stroke-linecap="round"/>
-  <!-- House body -->
-  <rect x="128" y="125" width="144" height="64" fill="#D4752A"/>
+
+  <!-- Rafter lines from peak to eave -->
+  <line x1="200" y1="62" x2="200" y2="124" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
+  <line x1="200" y1="62" x2="160" y2="124" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
+  <line x1="200" y1="62" x2="240" y2="124" stroke="#D4752A" stroke-width="4"  stroke-linecap="round"/>
+
+  <!-- House body solid fill -->
+  <rect x="128" y="123" width="144" height="62" fill="#D4752A"/>
+
   <!-- Door cutout -->
-  <rect x="180" y="150" width="40" height="39" fill="#191919" rx="1"/>
+  <rect x="182" y="150" width="36" height="35" fill="#1A1A1A"/>
 
-  <!-- RPR -->
-  <text x="200" y="232"
+  <!-- ── RPR — orange drop-shadow layer, then white on top ───────── -->
+  <text x="203" y="240"
     font-family="'Arial Black', Arial, sans-serif"
-    font-size="98"
-    font-weight="900"
-    fill="#FFFFFF"
-    text-anchor="middle"
-    dominant-baseline="middle">RPR</text>
+    font-size="102" font-weight="900"
+    fill="#D4752A"
+    text-anchor="middle" dominant-baseline="middle">RPR</text>
 
-  <!-- REMODELING -->
-  <text x="200" y="314"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="21"
-    font-weight="700"
+  <text x="200" y="237"
+    font-family="'Arial Black', Arial, sans-serif"
+    font-size="102" font-weight="900"
     fill="#FFFFFF"
-    text-anchor="middle"
-    dominant-baseline="middle"
-    letter-spacing="5.5">REMODELING</text>
+    text-anchor="middle" dominant-baseline="middle">RPR</text>
+
+  <!-- ── REMODELING ─────────────────────────────────────────────── -->
+  <text x="200" y="318"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="21" font-weight="700"
+    fill="#FFFFFF"
+    text-anchor="middle" dominant-baseline="middle"
+    letter-spacing="5">REMODELING</text>
+
 </svg>
