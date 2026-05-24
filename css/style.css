@@ -692,6 +692,9 @@ p { color: var(--gray-light); line-height: 1.75; }
 .footer-links ul { display: flex; flex-direction: column; gap: 0.55rem; }
 .footer-links a { font-size: 0.88rem; color: var(--gray); transition: color var(--t); }
 .footer-links a:hover { color: var(--orange); }
+.footer-fb { display: inline-flex; align-items: center; gap: 0.4rem; }
+.social-icon { width: 13px; height: 13px; flex-shrink: 0; }
+
 .footer-bottom {
   max-width: var(--max-w);
   margin: 0 auto;
