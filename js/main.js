@@ -50,20 +50,61 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
   revealObserver.observe(el);
 });
 
-// Contact form (spec site: client-side only)
+// Contact form
 const form    = document.getElementById('contact-form');
 const success = document.getElementById('form-success');
 
+function showFieldError(field, msg) {
+  field.classList.add('input-error');
+  const prev = field.parentElement.querySelector('.field-error');
+  if (prev) prev.remove();
+  const p = document.createElement('p');
+  p.className = 'field-error';
+  p.setAttribute('role', 'alert');
+  p.textContent = msg;
+  field.parentElement.appendChild(p);
+}
+
+function clearFieldError(field) {
+  field.classList.remove('input-error');
+  const err = field.parentElement.querySelector('.field-error');
+  if (err) err.remove();
+}
+
 if (form && success) {
+  form.querySelectorAll('input, textarea').forEach(field => {
+    field.addEventListener('input', () => clearFieldError(field));
+  });
+
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const name  = form.querySelector('#name')?.value.trim();
-    const email = form.querySelector('#email')?.value.trim();
-    if (!name || !email) return;
+
+    const nameField  = form.querySelector('#name');
+    const emailField = form.querySelector('#email');
+    let ok = true;
+
+    if (!nameField?.value.trim()) {
+      showFieldError(nameField, 'Please enter your name.');
+      ok = false;
+    }
+
+    if (!emailField?.value.trim()) {
+      showFieldError(emailField, 'Please enter your email address.');
+      ok = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+      showFieldError(emailField, 'Please enter a valid email address.');
+      ok = false;
+    }
+
+    if (!ok) {
+      form.querySelector('.input-error')?.focus();
+      return;
+    }
+
     form.querySelectorAll('input, textarea, select, button[type="submit"]').forEach(el => {
       el.disabled = true;
     });
-    success.removeAttribute('hidden');
+    success.classList.add('visible');
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 }

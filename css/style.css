@@ -612,7 +612,7 @@ p { color: var(--gray-light); line-height: 1.75; }
 .form-group select option { background: var(--dark-card); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-success {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 0.7rem;
   padding: 0.9rem 1.1rem;
@@ -623,7 +623,19 @@ p { color: var(--gray-light); line-height: 1.75; }
   font-weight: 600;
   font-size: 0.92rem;
 }
+.form-success.visible { display: flex; }
 .form-success svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: #e05555;
+  outline: none;
+}
+.field-error {
+  font-size: 0.78rem;
+  color: #e05555;
+  margin-top: 0.2rem;
+}
 
 .contact-info-card {
   background: var(--dark-card);
