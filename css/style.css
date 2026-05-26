@@ -333,8 +333,8 @@ p { color: var(--gray-light); line-height: 1.75; }
 .need-help-badge {
   flex-shrink: 0;
   position: relative;
-  width: 168px;
-  height: 168px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   background: var(--orange);
   display: flex;
@@ -371,28 +371,28 @@ p { color: var(--gray-light); line-height: 1.75; }
 }
 .nhb-big {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: 2.35rem;
   color: var(--white);
   letter-spacing: 0.01em;
 }
 .nhb-rule {
-  width: 42px;
+  width: 54px;
   height: 2px;
   background: rgba(255,255,255,0.55);
-  margin: 0.4rem 0;
+  margin: 0.5rem 0;
 }
 .nhb-small {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--white);
 }
 .nhb-arrow {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: var(--white);
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 /* ===== BEFORE / AFTER SLIDER ===== */
@@ -869,13 +869,13 @@ p { color: var(--gray-light); line-height: 1.75; }
     position: absolute;
     top: calc(var(--nav-h) + 1rem);
     right: 1.25rem;
-    width: 122px;
-    height: 122px;
+    width: 152px;
+    height: 152px;
   }
-  .nhb-big { font-size: 1.3rem; }
-  .nhb-rule { width: 30px; margin: 0.3rem 0; }
-  .nhb-small { font-size: 0.6rem; }
-  .nhb-arrow { font-size: 0.9rem; }
+  .nhb-big { font-size: 1.65rem; }
+  .nhb-rule { width: 38px; margin: 0.38rem 0; }
+  .nhb-small { font-size: 0.74rem; }
+  .nhb-arrow { font-size: 1.1rem; }
   .hcs-inner { flex-direction: column; text-align: center; }
   .hcs-text p { max-width: 100%; }
   .hcs-actions { justify-content: center; }
@@ -894,14 +894,14 @@ p { color: var(--gray-light); line-height: 1.75; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas a { width: 100%; }
   .need-help-badge {
-    width: 104px;
-    height: 104px;
+    width: 132px;
+    height: 132px;
     top: calc(var(--nav-h) + 0.75rem);
     right: 1rem;
   }
-  .nhb-big { font-size: 1.1rem; }
-  .nhb-rule { width: 24px; margin: 0.25rem 0; }
-  .nhb-small { font-size: 0.52rem; letter-spacing: 0.08em; }
+  .nhb-big { font-size: 1.4rem; }
+  .nhb-rule { width: 30px; margin: 0.3rem 0; }
+  .nhb-small { font-size: 0.66rem; letter-spacing: 0.08em; }
   .nhb-arrow { display: none; }
   .ba-tag { font-size: 0.78rem; letter-spacing: 0.12em; padding: 0.28rem 0.7rem; }
   .ba-grip { width: 40px; height: 40px; }
