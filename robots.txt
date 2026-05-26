@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://neonframewebdev.github.io/rocky-point-remodeling/sitemap.xml
+Sitemap: https://rockypointremodeling.com/sitemap.xml
