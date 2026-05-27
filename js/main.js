@@ -101,11 +101,37 @@ if (form && success) {
       return;
     }
 
-    form.querySelectorAll('input, textarea, select, button[type="submit"]').forEach(el => {
-      el.disabled = true;
-    });
-    success.classList.add('visible');
-    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const controls = form.querySelectorAll('input, textarea, select, button[type="submit"]');
+    controls.forEach(el => { el.disabled = true; });
+
+    const showError = msg => {
+      controls.forEach(el => { el.disabled = false; });
+      let box = form.querySelector('.form-error');
+      if (!box) {
+        box = document.createElement('div');
+        box.className = 'form-error';
+        box.setAttribute('role', 'alert');
+        form.querySelector('button[type="submit"]').insertAdjacentElement('afterend', box);
+      }
+      box.textContent = msg;
+    };
+
+    fetch(form.action || 'contact.php', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    })
+      .then(r => r.json().catch(() => ({ ok: r.ok })))
+      .then(res => {
+        if (res && res.ok) {
+          form.querySelector('.form-error')?.remove();
+          success.classList.add('visible');
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          showError((res && res.error) || 'Something went wrong. Please call (602) 312-0400.');
+        }
+      })
+      .catch(() => showError('Could not reach the server. Please call (602) 312-0400 or try again.'));
   });
 }
 
