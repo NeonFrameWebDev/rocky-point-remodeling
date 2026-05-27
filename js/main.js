@@ -102,6 +102,7 @@ if (form && success) {
     }
 
     const controls = form.querySelectorAll('input, textarea, select, button[type="submit"]');
+    const payload = new FormData(form); // capture BEFORE disabling (disabled fields are excluded from FormData)
     controls.forEach(el => { el.disabled = true; });
 
     const showError = msg => {
@@ -119,7 +120,7 @@ if (form && success) {
     fetch(form.action || 'contact.php', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
-      body: new FormData(form),
+      body: payload,
     })
       .then(r => r.json().catch(() => ({ ok: r.ok })))
       .then(res => {
