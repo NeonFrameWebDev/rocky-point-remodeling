@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApiResponse Status="OK" xmlns="http://api.namecheap.com/xml.response">
+  <Errors />
+  <Warnings />
+  <RequestedCommand>namecheap.domains.dns.gethosts</RequestedCommand>
+  <CommandResponse Type="namecheap.domains.dns.getHosts">
+    <DomainDNSGetHostsResult Domain="rockypointremodeling.com" EmailType="NONE" IsUsingOurDNS="true">
+      <host HostId="512515417" Name="@" Type="A" Address="66.29.146.107" MXPref="10" TTL="1799" AssociatedAppTitle="" FriendlyName="" IsActive="true" IsDDNSEnabled="false" />
+      <host HostId="512515458" Name="www" Type="A" Address="66.29.146.107" MXPref="10" TTL="1799" AssociatedAppTitle="" FriendlyName="" IsActive="true" IsDDNSEnabled="false" />
+      <host HostId="512575278" Name="@" Type="TXT" Address="v=spf1 +a +mx +ip4:66.29.146.101 include:spf.web-hosting.com ~all" MXPref="10" TTL="1799" AssociatedAppTitle="" FriendlyName="" IsActive="true" IsDDNSEnabled="false" />
+      <host HostId="512575528" Name="_dmarc" Type="TXT" Address="v=DMARC1; p=none;" MXPref="10" TTL="1799" AssociatedAppTitle="" FriendlyName="" IsActive="true" IsDDNSEnabled="false" />
+      <host HostId="512575451" Name="default._domainkey" Type="TXT" Address="v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAowEFQkPt5JiJvTdGDb0ZB85X5XUELyd0iX/irdeDvYxbL0lKSMf430e5K3cZohOYKNBffS2EUa3g+kEq8ixsmz1i8JsuVTZpzacq7HbXy9/7JLxQOdV68249rVWjF+/o6zKQmhZh1Ufe/sEuKvnuQmGfFcZ9TEy1BjQImhD7e5ynMUwdd5QZIe/TlL+Aq3NUD+5PGvhyCIJ42ZemIAS+NlHl1w1xvakzNOlYINV+OrCS+MvXQ8pAjKHJD510rzkK+PvqQ07b6yQOcm5CdXMW0lf6caR7jjxdA233ALjGn3AGNat5r9H0WdCKEHZChh6cvs/L+wB0fsg9t6iHUDn8ZQIDAQAB;" MXPref="10" TTL="1799" AssociatedAppTitle="" FriendlyName="" IsActive="true" IsDDNSEnabled="false" />
+    </DomainDNSGetHostsResult>
+  </CommandResponse>
+  <Server>Server 1360233663</Server>
+  <GMTTimeDifference>--4:00</GMTTimeDifference>
+  <ExecutionTime>0.23</ExecutionTime>
+</ApiResponse>

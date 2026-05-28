@@ -102,6 +102,15 @@ if (form && success) {
     }
 
     const controls = form.querySelectorAll('input, textarea, select, button[type="submit"]');
+    // Set _replyto dynamically to the visitor's email so the owner can hit Reply and reach them.
+    let replyto = form.querySelector('input[name="_replyto"]');
+    if (!replyto) {
+      replyto = document.createElement('input');
+      replyto.type = 'hidden';
+      replyto.name = '_replyto';
+      form.appendChild(replyto);
+    }
+    replyto.value = emailField.value.trim();
     const payload = new FormData(form); // capture BEFORE disabling (disabled fields are excluded from FormData)
     controls.forEach(el => { el.disabled = true; });
 
@@ -117,19 +126,23 @@ if (form && success) {
       box.textContent = msg;
     };
 
-    fetch(form.action || 'contact.php', {
+    // FormSubmit returns JSON like { success: "true" } on success, { success: "false", message: "..." } otherwise.
+    // We also accept r.ok === true (in case the response isn't JSON) for resilience.
+    fetch(form.action, {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: payload,
     })
-      .then(r => r.json().catch(() => ({ ok: r.ok })))
-      .then(res => {
-        if (res && res.ok) {
+      .then(r => r.json().then(j => ({ ok: r.ok, body: j })).catch(() => ({ ok: r.ok, body: null })))
+      .then(({ ok, body }) => {
+        const success_flag = body && (body.success === 'true' || body.success === true || body.ok === true);
+        if (ok && success_flag) {
           form.querySelector('.form-error')?.remove();
           success.classList.add('visible');
           success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
-          showError((res && res.error) || 'Something went wrong. Please call (602) 312-0400.');
+          const msg = (body && (body.message || body.error)) || 'Something went wrong. Please call (602) 312-0400.';
+          showError(msg);
         }
       })
       .catch(() => showError('Could not reach the server. Please call (602) 312-0400 or try again.'));

@@ -95,7 +95,13 @@
     <div class="section-inner">
       <div class="contact-grid">
 
-        <form class="contact-form reveal" id="contact-form" action="contact.php" method="post" novalidate aria-label="Contact form">
+        <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/ajax/rockypointremodeling1@gmail.com" method="post" novalidate aria-label="Contact form">
+          <!-- FormSubmit configuration. The recipient activates the endpoint once via an email link
+               on the first real submission. Hidden config fields: subject, template, captcha off,
+               replyto (visitor email) is set dynamically by JS. -->
+          <input type="hidden" name="_subject" value="New website inquiry, Rocky Point Remodeling">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" />
           <div class="form-row">
             <div class="form-group">
