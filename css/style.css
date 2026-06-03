@@ -729,13 +729,13 @@ p { color: var(--gray-light); line-height: 1.75; }
 .gallery-tile:hover .gallery-tile-caption { opacity: 1; }
 
 /* Collage tile */
-.gallery-collage { background: #000; }
+.gallery-collage { background: #111; }
 .collage-grid {
   position: absolute;
-  inset: 0;
+  inset: 8px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3px;
+  grid-template-columns: 1.1fr 0.75fr;
+  gap: 5px;
 }
 .collage-main,
 .collage-stack { overflow: hidden; }
