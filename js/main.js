@@ -153,26 +153,65 @@ if (form && success) {
 const lbOverlay = document.getElementById('lb-overlay');
 const lbImg     = document.getElementById('lb-img');
 const lbClose   = document.getElementById('lb-close');
+const lbPrev    = document.getElementById('lb-prev');
+const lbNext    = document.getElementById('lb-next');
+const lbCounter = document.getElementById('lb-counter');
+
+let lbImages = [];
+let lbIndex  = 0;
+
+function lbShow(index) {
+  lbIndex = Math.max(0, Math.min(index, lbImages.length - 1));
+  lbImg.src = lbImages[lbIndex].src;
+  lbImg.alt = lbImages[lbIndex].alt || '';
+  const multi = lbImages.length > 1;
+  lbPrev?.classList.toggle('active', multi);
+  lbNext?.classList.toggle('active', multi);
+  if (lbCounter) {
+    lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+    lbCounter.style.display = multi ? 'block' : 'none';
+  }
+}
+
+function lbOpen(images) {
+  lbImages = images;
+  lbShow(0);
+  lbOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+const closeLb = () => {
+  lbOverlay.classList.remove('open');
+  lbImg.src = '';
+  lbImages = [];
+  document.body.style.overflow = '';
+};
 
 if (lbOverlay && lbImg) {
   document.querySelectorAll('.gallery-tile[data-src]').forEach(tile => {
     tile.addEventListener('click', () => {
-      lbImg.src = tile.dataset.src;
-      lbImg.alt = tile.dataset.alt || '';
-      lbOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      lbOpen([{ src: tile.dataset.src, alt: tile.dataset.alt || '' }]);
     });
   });
 
-  const closeLb = () => {
-    lbOverlay.classList.remove('open');
-    lbImg.src = '';
-    document.body.style.overflow = '';
-  };
+  document.querySelectorAll('.gallery-tile[data-gallery]').forEach(tile => {
+    tile.addEventListener('click', () => {
+      const srcs = JSON.parse(tile.dataset.gallery);
+      const alts = JSON.parse(tile.dataset.galleryAlts || '[]');
+      lbOpen(srcs.map((src, i) => ({ src, alt: alts[i] || '' })));
+    });
+  });
 
   lbClose?.addEventListener('click', closeLb);
+  lbPrev?.addEventListener('click', () => lbShow(lbIndex - 1));
+  lbNext?.addEventListener('click', () => lbShow(lbIndex + 1));
   lbOverlay.addEventListener('click', e => { if (e.target === lbOverlay) closeLb(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lbOverlay.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeLb();
+    if (e.key === 'ArrowLeft')   lbShow(lbIndex - 1);
+    if (e.key === 'ArrowRight')  lbShow(lbIndex + 1);
+  });
 }
 
 // Before / After slider

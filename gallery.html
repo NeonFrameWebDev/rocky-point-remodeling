@@ -115,9 +115,20 @@
           <span class="gallery-tile-caption" data-en="Interior Mural Wall" data-es="Pared con Mural">Interior Mural Wall</span>
         </div>
 
-        <div class="gallery-tile reveal" data-src="assets/mosaic-mural.webp" data-alt="Finished custom mosaic tile mural of a woman with flowers" role="button" tabindex="0" aria-label="Custom Mosaic Art - click to enlarge">
-          <img src="assets/mosaic-mural.webp" alt="Custom mosaic tile mural" loading="lazy" />
-          <span class="gallery-tile-caption" data-en="Custom Mosaic Art" data-es="Arte de Mosaico">Custom Mosaic Art</span>
+        <div class="gallery-tile gallery-collage reveal"
+             data-gallery='["assets/mosaic-mural.webp","assets/mosaic-install-1.webp","assets/mosaic-install-2.webp"]'
+             data-gallery-alts='["Custom mosaic mural - finished piece","Craftsman installing the mosaic mural","Close-up of mosaic tile setting"]'
+             role="button" tabindex="0" aria-label="Custom Mosaic Art - click to view all 3 photos">
+          <div class="collage-grid">
+            <div class="collage-main">
+              <img src="assets/mosaic-mural.webp" alt="Custom mosaic mural" loading="lazy" />
+            </div>
+            <div class="collage-stack">
+              <div class="collage-cell"><img src="assets/mosaic-install-1.webp" alt="Mosaic installation" loading="lazy" /></div>
+              <div class="collage-cell"><img src="assets/mosaic-install-2.webp" alt="Mosaic tile detail" loading="lazy" /></div>
+            </div>
+          </div>
+          <span class="gallery-tile-caption" data-en="Custom Mosaic Art (3 photos)" data-es="Arte de Mosaico (3 fotos)">Custom Mosaic Art (3 photos)</span>
         </div>
 
         <div class="gallery-tile reveal" data-src="assets/shower-glass.webp" data-alt="Glass shower enclosure with custom tile work" role="button" tabindex="0" aria-label="Glass Shower - click to enlarge">
@@ -145,14 +156,14 @@
           <span class="gallery-tile-caption" data-en="Villa Renovation" data-es="Renovaci&oacute;n de Villa">Villa Renovation</span>
         </div>
 
-        <div class="gallery-tile reveal" data-src="assets/stairs-balustrade.webp" data-alt="New exterior concrete stairs with balustrade" role="button" tabindex="0" aria-label="Exterior Stairs - click to enlarge">
-          <img src="assets/stairs-balustrade.webp" alt="Exterior stairs with balustrade" loading="lazy" />
-          <span class="gallery-tile-caption" data-en="Exterior Stairs" data-es="Escaleras Exteriores">Exterior Stairs</span>
+        <div class="gallery-tile reveal" data-src="assets/stairs-balustrade.webp" data-alt="Exterior stairs before renovation" role="button" tabindex="0" aria-label="Exterior Stairs Before - click to enlarge">
+          <img src="assets/stairs-balustrade.webp" alt="Exterior stairs before renovation" loading="lazy" />
+          <span class="gallery-tile-caption" data-en="Exterior Stairs Before" data-es="Escaleras Exteriores - Antes">Exterior Stairs Before</span>
         </div>
 
-        <div class="gallery-tile reveal" data-src="assets/stairs-concrete.webp" data-alt="Finished concrete staircase after renovation" role="button" tabindex="0" aria-label="Concrete Stairs - click to enlarge">
-          <img src="assets/stairs-concrete.webp" alt="Concrete stairs after renovation" loading="lazy" />
-          <span class="gallery-tile-caption" data-en="Concrete Stairs" data-es="Escaleras de Concreto">Concrete Stairs</span>
+        <div class="gallery-tile reveal" data-src="assets/stairs-concrete.webp" data-alt="Exterior stairs after renovation" role="button" tabindex="0" aria-label="Exterior Stairs After - click to enlarge">
+          <img src="assets/stairs-concrete.webp" alt="Exterior stairs after renovation" loading="lazy" />
+          <span class="gallery-tile-caption" data-en="Exterior Stairs After" data-es="Escaleras Exteriores - Despu&eacute;s">Exterior Stairs After</span>
         </div>
 
         <div class="gallery-tile reveal" data-src="assets/property-gate.webp" data-alt="Property entrance gate with stucco wall" role="button" tabindex="0" aria-label="Property Gate - click to enlarge">
@@ -165,15 +176,6 @@
           <span class="gallery-tile-caption" data-en="Wood Fencing" data-es="Cerca de Madera">Wood Fencing</span>
         </div>
 
-        <div class="gallery-tile reveal" data-src="assets/mosaic-install-1.webp" data-alt="Craftsman installing custom mosaic tile mural" role="button" tabindex="0" aria-label="Mosaic Installation - click to enlarge">
-          <img src="assets/mosaic-install-1.webp" alt="Mosaic mural installation" loading="lazy" />
-          <span class="gallery-tile-caption" data-en="Mosaic Installation" data-es="Instalaci&oacute;n de Mosaico">Mosaic Installation</span>
-        </div>
-
-        <div class="gallery-tile reveal" data-src="assets/mosaic-install-2.webp" data-alt="Close-up of mosaic tile mural being set" role="button" tabindex="0" aria-label="Mosaic Tile Detail - click to enlarge">
-          <img src="assets/mosaic-install-2.webp" alt="Mosaic tile detail" loading="lazy" />
-          <span class="gallery-tile-caption" data-en="Mosaic Tile Detail" data-es="Detalle de Mosaico">Mosaic Tile Detail</span>
-        </div>
 
       </div>
 
@@ -191,7 +193,10 @@
   <!-- LIGHTBOX -->
   <div id="lb-overlay" class="lb-overlay" role="dialog" aria-modal="true" aria-label="Photo enlarged">
     <button id="lb-close" class="lb-close" aria-label="Close">&times;</button>
+    <button id="lb-prev" class="lb-nav lb-prev" aria-label="Previous photo">&#8249;</button>
     <img id="lb-img" class="lb-img" src="" alt="" />
+    <button id="lb-next" class="lb-nav lb-next" aria-label="Next photo">&#8250;</button>
+    <div id="lb-counter" class="lb-counter"></div>
   </div>
 
   <!-- FOOTER -->
